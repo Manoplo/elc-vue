@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import ColorSwatch from '../../../../../components/color-swatch/ColorSwatch.vue'
+import ColorSwatch from '@/components/color-swatch/ColorSwatch.vue'
+import SizeSelector from './components/size-selector/SizeSelector.vue'
 import data from './data.ts';
 import { PageType } from '../../../../../global-constants'
 
@@ -28,6 +29,12 @@ const color = ref(data.priceWithDiscount ? '#e21e04' : 'black');
             </div>
             <div v-if="data.colors.length" class="color-swatch">
                 <ColorSwatch :colors="data.colors" :from="PageType.PDP" />
+            </div>
+            <div class="size-selector">
+                <SizeSelector :sizes="data.sizes" />
+            </div>
+            <div>
+                <AddToBag />
             </div>
 
         </div>
@@ -98,6 +105,10 @@ aside {
     color: #00862d;
     margin-top: 1.6rem;
     margin-bottom: 2.4rem;
+}
+
+.size-selector {
+    margin: 6.2rem 0;
 }
 </style>
 
