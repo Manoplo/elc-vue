@@ -29,7 +29,7 @@ const handleColorClick = (color: Color) => {
         <div class="container">
             <div @mouseenter="colorName = color.name" @mouseleave="colorName = selectedColor"
                 @click="handleColorClick(color)" v-for="color in colors" :key="color.name" class="button-container"
-                :class="{ active: selectedColor === color?.name }">
+                :class="{ active: selectedColor === color?.name ?? colors?.[0]?.name }">
                 <button :style="{ backgroundColor: color.value }"></button>
             </div>
         </div>
